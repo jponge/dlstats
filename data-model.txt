@@ -1,0 +1,25 @@
+Key / Value:
+
+    product-all -> counter
+    product-version-all -> counter    
+
+Hashes:
+
+    product-version-y
+        year1 -> counter
+        year2 -> counter
+        (...)
+    
+    product-version-ym
+        year1-month1 -> counter
+        year1-month2 -> counter
+        (...)
+
+    product-version-ymd
+        year1-month1-day1 -> counter
+        year1-month1-day2 -> counter
+        (...)        
+
+Sets:
+    
+    dl-remoteIP => unique downloaders IPs

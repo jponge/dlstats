@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<!--
+    DLStats - A NodeJS Product Downloads Stats System
+    Copyright (c) 2011 Julien Ponge
+ 
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+ 
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<head>
+    <title>Stats viewer</title>
+    <script type="text/javascript" charset="utf-8" src="http://code.jquery.com/jquery-1.6.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="viewer.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" title="Style" charset="utf-8"/>
+</head>
+
+<body>
+    
+    <h1>Downloads map</h1>
+    <div id="map"></div>
+    
+    <h1>Download statistics</h1>
+    <div id="tables">
+        
+        <h2>Global</h2>
+        <table id="global-stats" border="1">
+            <tr>
+                <th>Product</th>
+                <th>Total downloads</th>
+            </tr>
+        </table>
+        
+        <h2>Global per version</h2>
+        <table id="version-stats" border="1">
+            <tr>
+                <th>Product</th>
+                <th>Version</th>
+                <th>Total downloads</th>
+            </tr>
+        </table>
+        
+        <h2>Yearly stats</h2>
+        <table id="yearly-stats" border="1">
+            <tr>
+                <th>Year</th>
+                <th>Product</th>
+                <th>Version</th>
+                <th>Downloads</th>
+            </tr>
+        </table>
+        
+        <h2>Monthly stats</h2>
+        <table id="monthly-stats" border="1">
+            <tr>
+                <th>Month</th>
+                <th>Product</th>
+                <th>Version</th>
+                <th>Downloads</th>
+            </tr>
+        </table>
+        
+        <h2>Daily stats</h2>
+        <table id="daily-stats" border="1">
+            <tr>
+                <th>Day</th>
+                <th>Product</th>
+                <th>Version</th>
+                <th>Downloads</th>
+            </tr>
+        </table>
+        
+    </div>    
+    
+    <script type="text/javascript" charset="utf-8">    
+    $(document).ready(function() {
+        go();
+    });    
+    </script>
+        
+</body>
+</html>
