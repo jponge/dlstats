@@ -23,63 +23,101 @@
     <script type="text/javascript" charset="utf-8" src="viewer.js"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <link rel="stylesheet" href="style.css" type="text/css" media="screen" title="Style" charset="utf-8"/>
+    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap-1.1.0.min.css"/>
 </head>
 
 <body>
+<div class="container">
+
+    <h1>Stats viewer</h1>
     
-    <h1>Downloads map</h1>
-    <div id="map"></div>
+    <ul class="pills">
+        <li id="map-button" class="active"><a href="#">Downloads map</a></li>
+        <li id="global-button"><a href="#">Global stats</a></li>
+        <li id="version-button"><a href="#">Global stats per version</a></li>
+        <li id="yearly-button"><a href="#">Yearly stats</a></li>
+        <li id="monthly-button"><a href="#">Monthly stats</a></li>
+        <li id="daily-button"><a href="#">Daily stats</a></li>
+    </ul>
     
-    <h1>Download statistics</h1>
-    <div id="tables">
+    <div id="spinner">
+        <h3><img src="ajax-loader.gif" alt="Loading indicator"/> <span>Loading data...</span></h3>
+        <p></p>
+    </div>
+
+    <div id="main-view">
         
-        <h2>Global</h2>
-        <table id="global-stats" border="1">
-            <tr>
-                <th>Product</th>
-                <th>Total downloads</th>
-            </tr>
+        <div id="map"></div>
+        
+        <table id="global-stats" class="zebra-striped">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Total downloads</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
         </table>
         
-        <h2>Global per version</h2>
-        <table id="version-stats" border="1">
-            <tr>
-                <th>Product</th>
-                <th>Version</th>
-                <th>Total downloads</th>
-            </tr>
+        <table id="version-stats" class="zebra-striped">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Version</th>
+                    <th>Total downloads</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
         </table>
         
-        <h2>Yearly stats</h2>
-        <table id="yearly-stats" border="1">
-            <tr>
-                <th>Year</th>
-                <th>Product</th>
-                <th>Version</th>
-                <th>Downloads</th>
-            </tr>
+        <table id="yearly-stats" class="zebra-striped">
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Product</th>
+                    <th>Version</th>
+                    <th>Downloads</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
         </table>
         
-        <h2>Monthly stats</h2>
-        <table id="monthly-stats" border="1">
-            <tr>
-                <th>Month</th>
-                <th>Product</th>
-                <th>Version</th>
-                <th>Downloads</th>
-            </tr>
+        <table id="monthly-stats" class="zebra-striped">
+            <thead>
+                <tr>
+                    <th>Month</th>
+                    <th>Product</th>
+                    <th>Version</th>
+                    <th>Downloads</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
         </table>
         
-        <h2>Daily stats</h2>
-        <table id="daily-stats" border="1">
-            <tr>
-                <th>Day</th>
-                <th>Product</th>
-                <th>Version</th>
-                <th>Downloads</th>
-            </tr>
+        <table id="daily-stats" class="zebra-striped">
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Product</th>
+                    <th>Version</th>
+                    <th>Downloads</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
         </table>
         
+        <h5>About this application</h5>
+        <p>This server is running <a href="https://github.com/jponge/dlstats">DLStats</a>.</p>
+        <p>
+            <a href="https://github.com/jponge/dlstats">DLStats</a> is Copyright &copy; 2011 
+            <a href="http://julien.ponge.info/">Julien Ponge</a> and is published under the terms
+            of the <a href="http://www.gnu.org/licenses/agpl.html">GNU Affero General Public License</a>.
+        </p>
+        <p>This HTML client makes use of the following third-party artifacts:</p>
+        <ul>
+            <li><a href="http://jquery.com/">The jQuery JavaScript library</li>
+            <li><a href="http://twitter.github.com/bootstrap/">The Twitter Bootstrap CSS framework</a></li>
+        </ul>
     </div>    
     
     <script type="text/javascript" charset="utf-8">    
@@ -87,6 +125,7 @@
         go();
     });    
     </script>
-        
+
+</div>        
 </body>
 </html>
