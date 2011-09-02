@@ -79,20 +79,22 @@ function gatherGeolocData(callback) {
     var result = [];
     rclient.smembers('dl-remoteIP', function(err, values) {
         values.forEach(function(ip, index) {
-            var data = city.lookupSync(ip);
-            if (data) {
-                if (data.longitude && data.latitude) {
-                    result.push({
-                        'longitude': data.longitude,
-                        'latitude': data.latitude
+            process.nextTick(function() {
+                var data = city.lookupSync(ip);
+                if (data) {
+                    if (data.longitude && data.latitude) {
+                        result.push({
+                            'longitude': data.longitude,
+                            'latitude': data.latitude
+                        });
+                    }
+                }
+                if (index == (values.length - 1)) {
+                    process.nextTick(function() {
+                        callback(result);
                     });
                 }
-            }
-            if (index == (values.length - 1)) {
-                process.nextTick(function() {
-                    callback(result);
-                });
-            }
+            });
         });
     });
 }
